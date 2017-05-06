@@ -1,4 +1,4 @@
-define(['jquery'], 
+define(['jquery'],
 function($) {
 
   function Question(question, answer) {
@@ -11,7 +11,7 @@ function($) {
   Question.prototype.answer = function(answer) {
     this.answeredCorrectly = answer.toLowerCase() === this.correctAnswer.toLowerCase();
     this.answered = true;
-  }
+  };
 
   function Quiz(conf) {
     this.questions     = this._shuffle(conf.questions);
@@ -72,7 +72,7 @@ function($) {
   Quiz.prototype.done = function() {
     var isCorrect = function(question) {
       return question.answeredCorrectly;
-    }
+    };
     var correct = this.questions.filter(isCorrect).length;
     var percent = (correct / this.total);
     var result  = {

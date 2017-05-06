@@ -21,14 +21,14 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
       $('a[href*="#signup"]').click(function() {
         $(".modal.in").modal("hide");
         $("#gui").fadeIn();
-        $(".site-wrapper").fadeOut(); 
+        $(".site-wrapper").fadeOut();
         $("#signup").modal("show");
         return false;
       });
       $('a[href*="#login"]').click(function() {
         $(".modal.in").modal("hide");
         $("#gui").fadeIn();
-        $(".site-wrapper").fadeOut(); 
+        $(".site-wrapper").fadeOut();
         $("#login").modal("show");
         return false;
       });
@@ -42,16 +42,16 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
         $("#sidebar").fadeToggle();
         return false;
       });
-      
+
       $('a[href*="#instructions"]').click(function() {
         $(".modal.in").modal("hide");
         $("#instructions").modal("show");
         return false;
       });
-      
+
       $('a[href*="#about"]').click(function() {
         $("#gui").fadeIn();
-        $(".site-wrapper").fadeOut(); 
+        $(".site-wrapper").fadeOut();
         $(".modal.in").modal("hide");
         $("#about").modal("show");
         return false;
@@ -86,10 +86,10 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
 
       // events that the rest of the app need to be notifed about
       $(".setting-icon").click(function() {
-        var setting = $(this).data("toggle"); 
+        var setting = $(this).data("toggle");
         FEVENT.fire('togglebuttonclick', {button: setting});
-      }); 
- 
+      });
+
       $("#sidebar").on("click", "[data-constellation]", function() {
         var constellation = $(this).data("constellation");
         var group         = $(this).data("group");
@@ -98,7 +98,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
 
       $("#sidebar").on("click", "[data-family]", function() {
         var family = $(this).data("family");
-        FEVENT.fire('selectfamily', {family: family}); 
+        FEVENT.fire('selectfamily', {family: family});
       });
 
       $("#sidebar").on("click", "[data-test]", function() {
@@ -140,7 +140,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
       $("#challenge-mode").click(function() {
         $(".modal.in").modal("hide");
         $("#challenge-select").modal("show");
-        return false; 
+        return false;
       });
 
       $("#challenge-mode-single").click(function() {
@@ -179,7 +179,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
         } else if (longitude > 180 || latitude < -180) {
           error("Invalid longitude");
         } else {
-          var event = {
+          var evt = {
             data: {date: date, latitude: latitude, longitude: longitude},
             success: function() {
               $("#skyset").modal("hide");
@@ -187,7 +187,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
             },
             fail: error
           };
-          FEVENT.fire('settingssubmit', event);
+          FEVENT.fire('settingssubmit', evt);
         }
       });
 
@@ -249,10 +249,10 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
     var joinId = getJoinId();
 
     // check if logged in
-    if (FMODEL.isUserLoggedIn()) { 
+    if (FMODEL.isUserLoggedIn()) {
       if (joinId.length) {
         $("#gui").fadeIn();
-        $(".site-wrapper").fadeOut(); 
+        $(".site-wrapper").fadeOut();
 
         FEVENT.fire('challengelobbyjoin', {lobbyId: joinId});
       } else {
@@ -261,7 +261,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
         $("#sidebar-button").removeClass("disabled");
         $("#sidebar").fadeIn(600);
       }
- 
+
       $("#user-name").html(FMODEL.getUserName());
 
       // show sidebar automatically when logged in
@@ -327,7 +327,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
 
     var i = groupData.constellations.indexOf(constellation);
     var data = {};
-    
+
     data.current = constData;
     data.family  = constData.family;
     data.test    = {index: groupIndex, name: constData.family};
@@ -335,14 +335,14 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
       data.next = {index: groupIndex, name: groupData.constellations[i + 1]};
     }
     if (i > 0) {
-      data.prev = {index: groupIndex, name: groupData.constellations[i - 1]}  
+      data.prev = {index: groupIndex, name: groupData.constellations[i - 1]};
     }
 
     var template = $("#constellation").html();
     var html = Mustache.to_html(template, data);
     $("#sidebar").html(html);
   }
-    
+
   function renderQuizQuestionSidebar() {
     var quizQuestion = FMODEL.quiz().getCurrentQuestion();
     var data = {
@@ -433,7 +433,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
     var template = $("#multiplayer-question").html();
     var data = {
       constName: question
-    }
+    };
 
     var html = Mustache.to_html(template, data);
     $("#sidebar").html(html);
@@ -461,7 +461,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
       person: leaders.map(toPerson),
       score:  myScore * 100
 	};
-	
+
     var html = Mustache.to_html(template, data);
     $("#sidebar").hide();
     $("#leaderboard").html(html);

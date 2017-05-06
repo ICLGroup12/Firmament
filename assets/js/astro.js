@@ -12,7 +12,7 @@ define(function() {
         J2000 = 2451545.0,
         J1970 = 2440588.0,
         dayMs = 24 * 60 * 60 * 1000,
-        obliquity = 0.409087723, // 23.439 degrees 
+        obliquity = 0.409087723, // 23.439 degrees
         rad   = PI / 180.0;
 
 
@@ -42,7 +42,7 @@ define(function() {
   };
 
   PlaceTime.prototype.sunPosition = function() {
-    const JD = this.julianDate(); 
+    const JD = this.julianDate();
 
     const n = JD - J2000;
     const L = (4.89495 + 0.01720279239 * n) % PI2;
@@ -51,10 +51,10 @@ define(function() {
     const lambda = (L + 0.03342305518 * sin(g) + 0.000349065 * sin(2 * g));
 
     const dec = asin(sin(obliquity) * sin(lambda));
-    const ra  = atan2(sin(lambda) * cos(obliquity), cos(lambda));
+    let ra  = atan2(sin(lambda) * cos(obliquity), cos(lambda));
     if (ra < 0) {ra += PI2;}
-  
-    return new EquatorialPosition(ra, dec); 
+
+    return new EquatorialPosition(ra, dec);
   };
 
   PlaceTime.prototype.julianDate = function() {
@@ -63,7 +63,7 @@ define(function() {
 
   PlaceTime.prototype.gst = function() {
     const JD = this.julianDate();
-    const D  = JD - J2000; 
+    const D  = JD - J2000;
     const s  = (18.697374558 + 24.06570982441908 * D) % 24;
     return s * (PI2 / 24.0);
   };
@@ -173,7 +173,7 @@ define(function() {
       });
     }
     return edgePositions;
-  }
+  };
 
   function Family(data) {
     Object.assign(this, data);

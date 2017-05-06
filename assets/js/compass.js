@@ -19,13 +19,13 @@ function(THREE) {
       sprite.scale.set(labelWidth, labelHeight, 1.0);
       return sprite;
     };
-    
+
     this.add(compassSprite("N", [radius, 0, 16]));
     this.add(compassSprite("E", [0, -radius, 16]));
     this.add(compassSprite("S", [-radius, 0, 16]));
     this.add(compassSprite("W", [0, radius, 16]));
 
-  };
+  }
 
   Compass.prototype = Object.create(THREE.Object3D.prototype);
   Compass.prototype.constructor = Compass;

@@ -15,10 +15,10 @@ function(THREE, FEVENT, FMODEL) {
     Object3D.call(this);
     var that = this;
     this.name = "stars";
-    
+
     const loader = new TextureLoader();
     // wait for texture load
-    loader.load("assets/img/star16.png", function(texture) { 
+    loader.load("assets/img/star16.png", function(texture) {
       const material = new StarMaterial();
       material.uniforms.texture.value = texture;
       material.uniforms.opacity.value = 1.0;
@@ -49,7 +49,7 @@ function(THREE, FEVENT, FMODEL) {
 
         i++;
         i3 += 3;
-      }); 
+      });
 
       const geometry = new BufferGeometry();
       geometry.addAttribute('position', new BufferAttribute(positions, 3));
@@ -74,7 +74,7 @@ function(THREE, FEVENT, FMODEL) {
       that.add(light);
     });
 
-  };
+  }
 
   Stars.prototype = Object.create(THREE.Object3D.prototype);
   Stars.prototype.constructor = Stars;

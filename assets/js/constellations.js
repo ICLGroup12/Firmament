@@ -44,12 +44,12 @@ function(THREE, FMODEL) {
         // draw line between them
         var line = new Line(geometry, material);
         geometry.computeLineDistances();
-        constellationLines.add(line); 
+        constellationLines.add(line);
         that.add(constellationLines);
       }
     });
 
-  };
+  }
 
   Constellations.prototype = Object.create(THREE.Object3D.prototype);
   Constellations.prototype.constructor = Constellations;
@@ -68,7 +68,7 @@ function(THREE, FMODEL) {
     for (var i = 0, ii = family.groups.length; i < ii; i++) {
       var group = family.groups[i];
       for (var j = 0, jj = group.constellations.length; j < jj; j++) {
-        this.highlight(group.constellations[j]); 
+        this.highlight(group.constellations[j]);
       }
     }
   };

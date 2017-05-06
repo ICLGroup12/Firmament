@@ -27,7 +27,7 @@ function($, THREE) {
     $("#about").one("click", function() {
       clearInterval(rotateInterval);
     });
-    
+
     this.controlState = {
       locked: false,
       start: {},       // click start
@@ -116,7 +116,7 @@ function($, THREE) {
         that.activeGlideInterval = false;
         that.unlock();
         return;
-      } 
+      }
 
       var cam = new THREE.Vector3().lerpVectors(cXYZ, xyz, i / that.glideSteps);
       that.camera.lookAt(cam);
@@ -124,11 +124,11 @@ function($, THREE) {
     };
 
     this.activePanInterval = setInterval(step, this.glideInterval);
-  }
+  };
 
   Controls.prototype.zoom = function(delta) {
     var currentZoom = this.camera.zoom;
-    currentZoom += delta * this.zoomDamping; 
+    currentZoom += delta * this.zoomDamping;
     currentZoom = clamp(1.0, 4.0, currentZoom);
     this.camera.zoom = currentZoom;
     this.camera.updateProjectionMatrix();

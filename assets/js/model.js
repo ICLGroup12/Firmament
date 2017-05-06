@@ -18,9 +18,9 @@ function($, FAPI, FEVENT, ASTRO, FQUIZ) {
   var activeQuiz = {};
   var multiLobby = {};
 
-  var activeFamily        = undefined,
-      activeConstellation = undefined;
-  
+  var activeFamily,
+      activeConstellation;
+
   function init() {
     // load data off server
     FAPI.familiesGET().then(function(data) {
@@ -46,7 +46,7 @@ function($, FAPI, FEVENT, ASTRO, FQUIZ) {
     }).done(function() {
       constellationsLoaded.resolve(constellations);
     });
-		
+
 		refreshUserProfile();
   }
 
@@ -85,7 +85,7 @@ function($, FAPI, FEVENT, ASTRO, FQUIZ) {
   }
 
   function getFamily(name) {
-    return families[name]; 
+    return families[name];
   }
 
   function getFamilyAltAz(name) {
@@ -122,24 +122,24 @@ function($, FAPI, FEVENT, ASTRO, FQUIZ) {
   function eachStar(f) {
     for (var prop in stars) {
       if (stars.hasOwnProperty(prop)) {
-        f(stars[prop]); 
-      } 
+        f(stars[prop]);
+      }
     }
   }
 
   function eachConstellation(f) {
     for (var prop in constellations) {
       if (constellations.hasOwnProperty(prop)) {
-        f(constellations[prop]); 
-      } 
+        f(constellations[prop]);
+      }
     }
   }
 
   function eachFamily(f) {
     for (var prop in families) {
       if (families.hasOwnProperty(prop)) {
-        f(families[prop]); 
-      } 
+        f(families[prop]);
+      }
     }
   }
 
@@ -149,7 +149,7 @@ function($, FAPI, FEVENT, ASTRO, FQUIZ) {
       if (typeof data.progress !== 'undefined') {
         data.progress.forEach(function(v) {
           famProgress[v.name] = v;
-        }); 
+        });
       }
       FEVENT.fire('user');
     });
@@ -161,7 +161,7 @@ function($, FAPI, FEVENT, ASTRO, FQUIZ) {
       if (typeof data.progress !== 'undefined') {
         data.progress.forEach(function(v) {
           famProgress[v.name] = v;
-        }); 
+        });
       }
     });
   }

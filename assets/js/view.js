@@ -75,7 +75,7 @@ function($, FEVENT, THREE, FMODEL, FCONTROLS, FCONSTELLATIONS, FGROUND, FLABELS,
     });
 
     FEVENT.on('visibilityoff', function(event) {
-      disableVisibility(event.objectName); 
+      disableVisibility(event.objectName);
     });
   }
 
@@ -158,7 +158,7 @@ function($, FEVENT, THREE, FMODEL, FCONTROLS, FCONSTELLATIONS, FGROUND, FLABELS,
     if (typeof obj === 'undefined') {
       console.warn("No such object: " + objectName);
       return;
-    } 
+    }
     obj.visible = !obj.visible;
   }
 
@@ -167,7 +167,7 @@ function($, FEVENT, THREE, FMODEL, FCONTROLS, FCONSTELLATIONS, FGROUND, FLABELS,
     if (typeof obj === 'undefined') {
       console.warn("No such object: " + objectName);
       return;
-    } 
+    }
     obj.visible = false;
   }
 
@@ -196,7 +196,7 @@ function($, FEVENT, THREE, FMODEL, FCONTROLS, FCONSTELLATIONS, FGROUND, FLABELS,
 
     // convert back into Ra/Dec
     const dec = Math.asin(pos.z);
-    const ra  = Math.acos(pos.x / Math.cos(dec));
+    let ra  = Math.acos(pos.x / Math.cos(dec));
     if (pos.y < 0) {
       ra = -ra;
     }

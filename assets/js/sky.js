@@ -31,7 +31,7 @@ function(THREE, FEVENT, FMODEL) {
     });
 
     this.add(sky, light);
-  };
+  }
 
   Sky.prototype = Object.create(THREE.Object3D.prototype);
   Sky.prototype.constructor = Sky;
