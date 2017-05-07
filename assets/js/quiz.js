@@ -1,5 +1,4 @@
-define(['jquery'],
-function($) {
+export default (function() {
 
   function Question(question, answer) {
     this.correctAnswer     = answer;
@@ -106,4 +105,4 @@ function($) {
     Quiz: Quiz
   };
 
-});
+})();

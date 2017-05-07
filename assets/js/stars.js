@@ -1,5 +1,9 @@
-define(['three', 'event', 'model', 'starshader'],
-function(THREE, FEVENT, FMODEL) {
+import './starshader.js';
+
+import FEVENT from './event.js';
+import FMODEL from './model.js';
+
+export default (function() {
 
   const Object3D        = THREE.Object3D,
         Vector3         = THREE.Vector3,
@@ -83,4 +87,4 @@ function(THREE, FEVENT, FMODEL) {
     Stars: Stars
   };
 
-});
+})();

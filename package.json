@@ -1,0 +1,17 @@
+{
+	"name": "firmament",
+	"main": "mockwebapp.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "node mockwebapp.js"
+  },
+  "devDependencies": {
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "body-parser" : "^1.17.1",
+    "express": "^4.15.2"
+  },
+  "jshintConfig": {
+    "esversion": 6
+  }
+}

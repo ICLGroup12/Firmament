@@ -1,5 +1,6 @@
-define(['three', 'model'],
-function(THREE, FMODEL) {
+import FMODEL from './model.js';
+
+export default (function() {
 
   var LineBasicMaterial = THREE.LineBasicMaterial,
       Object3D          = THREE.Object3D,
@@ -85,4 +86,4 @@ function(THREE, FMODEL) {
     Constellations: Constellations
   };
 
-});
+})();

@@ -1,5 +1,6 @@
-define(['three','text'],
-function(THREE) {
+import './text.js';
+
+export default (function() {
 
   var TextMaterial = THREE.TextMaterial,
       Sprite       = THREE.Sprite,
@@ -31,6 +32,6 @@ function(THREE) {
   Compass.prototype.constructor = Compass;
 
   return {
-    Compass: Compass
+    Compass
   };
-});
+})();

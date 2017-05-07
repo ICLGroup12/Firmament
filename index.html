@@ -9,13 +9,13 @@
     <link href='assets/css/opensans.css' rel='stylesheet'>
     <link href='assets/css/font-awesome.css' rel='stylesheet'>
 
-    <link rel="icon" type="image/png" sizes="192x192" 
+    <link rel="icon" type="image/png" sizes="192x192"
     href="assets/fav/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32"   
+    <link rel="icon" type="image/png" sizes="32x32"
     href="assets/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96"   
+    <link rel="icon" type="image/png" sizes="96x96"
     href="assets/fav/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16"   
+    <link rel="icon" type="image/png" sizes="16x16"
     href="assets/fav/favicon-16x16.png">
   </head>
   <body class="no-select">
@@ -58,7 +58,7 @@
       </div>
       <span class="btn btn-side btn-primary-outline btn-text" data-reset>Back</span>
     </script>
-      
+
     <script id="constellation" type="x-tmpl-mustache">
       {{#current}}
       <div class="circle circle-single">{{short}}</div>
@@ -102,10 +102,10 @@
 			{{#test}}
       <span class="btn btn-side btn-primary-outline btn-text" data-test data-group="{{index}}" data-family="{{name}}">Test</span>
 			{{/test}}
-      {{/next}} 
+      {{/next}}
     </script>
 
-    
+
     <script id="quiz-question" type="x-tmpl-mustache">
       <div class="circle circle-single quiz-circle">{{time}}</div>
       <h3>Question</h3><h6 class="sidebar-text">What's the name?</h6>
@@ -158,7 +158,7 @@
 				{{#pass}}
 				<div class="sidebar-box">
 					<p>You scored {{correct}} out of {{total}}</p>
-					<p>Well done! You are ready to learn more.</p>	
+					<p>Well done! You are ready to learn more.</p>
 				</div>
 				{{/pass}}
 				{{^pass}}
@@ -288,14 +288,14 @@
 
 
     <!-- HEADERS -->
-      
+
     <h3 class="header-logo masthead-brand">
       <img class="logo" src="assets/img/logo.png" alt="Firmament" draggable="false">
       <a href="#about">
         Firmament
       </a>
     </h3>
-    
+
     <nav class="header-links nav nav-masthead">
       <div id="signin" class="collapse">
         <a class="nav-link" href="#signup">Sign Up</a>
@@ -329,7 +329,7 @@
               Learn to navigate the night sky.
             </h1>
             <p class="lead">
-              <span id="start-button" class="btn btn-lg btn-primary-outline 
+              <span id="start-button" class="btn btn-lg btn-primary-outline
               btn-text btn-cover start">Begin</span>
             </p>
           </div>
@@ -344,12 +344,12 @@
 
     <!-- LOGIN FORM -->
 
-    <div class="modal fade" id="login" tabindex="-1" 
+    <div class="modal fade" id="login" tabindex="-1"
     role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" 
+            <button type="button" class="close" data-dismiss="modal"
             aria-label="Close"><span aria-hidden="true">&times;</span>
             </button>
             <h4 class="modal-title">Login to Firmament</h4>
@@ -358,13 +358,13 @@
             <form id="login-form" class="form-input">
               <div class="form-group">
                 <label>Email address
-                  <input name="email" type="email" class="form-control" 
+                  <input name="email" type="email" class="form-control"
                   placeholder="Email">
                 </label>
               </div>
               <div class="form-group">
                 <label>Password
-                  <input name="password" type="password" class="form-control" 
+                  <input name="password" type="password" class="form-control"
                   placeholder="Password">
                 </label>
               </div>
@@ -375,7 +375,7 @@
               </div>
               <div id="login-error" class="bg-danger collapse">
               </div>
-              <button type="submit" class="btn btn-sm 
+              <button type="submit" class="btn btn-sm
                 btn-primary-outline">Login</button>
             </form>
           </div>
@@ -388,15 +388,15 @@
         </div>
       </div>
     </div>
-    
+
     <!-- SIGNUP FORM -->
-    
-    <div class="modal fade" id="signup" tabindex="-1" 
+
+    <div class="modal fade" id="signup" tabindex="-1"
     role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" 
+            <button type="button" class="close" data-dismiss="modal"
             aria-label="Close"><span aria-hidden="true">&times;</span>
             </button>
             <h4 class="modal-title">Welcome to Firmament</h4>
@@ -405,35 +405,35 @@
             <form id="signup-form" class="form-input">
               <div class="form-group">
                 <label>First name
-                  <input name="first_name" type="text" class="form-control" 
+                  <input name="first_name" type="text" class="form-control"
                   placeholder="First name">
                 </label>
               </div>
               <div class="form-group">
                 <label>Last name
-                  <input name="last_name" type="text" class="form-control" 
+                  <input name="last_name" type="text" class="form-control"
                   placeholder="Last name">
                 </label>
               </div>
               <div class="form-group">
                 <label>Email address
-                  <input name="email" type="email" class="form-control" 
+                  <input name="email" type="email" class="form-control"
                   placeholder="Email ">
                 </label>
               </div>
               <div class="form-group">
                 <label>Password
-                  <input name="password" type="password" class="form-control" 
+                  <input name="password" type="password" class="form-control"
                   placeholder="Password">
                 </label>
               </div>
               <div class="form-group">
-                Sign up and accept the 
+                Sign up and accept the
                 <a class="help-block" href="#"><em>Terms of Use</em></a>.
               </div>
               <div id="signup-error" class="bg-danger collapse">
               </div>
-                <button type="submit" class="btn btn-sm 
+                <button type="submit" class="btn btn-sm
                 btn-primary-outline">Sign Up</button>
             </form>
           </div>
@@ -448,13 +448,13 @@
     </div>
 
     <!-- SKY SETTINGS -->
-    
-    <div class="modal fade" id="skyset" tabindex="-1" 
+
+    <div class="modal fade" id="skyset" tabindex="-1"
     role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" 
+            <button type="button" class="close" data-dismiss="modal"
             aria-label="Close"><span aria-hidden="true">&times;</span>
             </button>
             <h4 class="modal-title">Sky Settings</h4>
@@ -463,19 +463,19 @@
             <div class="modal-body">
               <div class="form-group">
                 <label>Latitude
-                  <input name="latitude" class="form-control" 
+                  <input name="latitude" class="form-control"
                   id="latitude-input" placeholder="Latitude">
                 </label>
               </div>
               <div class="form-group">
                 <label>Longitude
-                  <input name="longitude" class="form-control" 
+                  <input name="longitude" class="form-control"
                   id="longitude-input" placeholder="Longitude">
                 </label>
               </div>
               <div class="form-group">
                 <label>Date
-                  <input name="datetime" class="form-control" 
+                  <input name="datetime" class="form-control"
                   id="datetime-input" placeholder="YYYY-MM-DD HH:mm">
                 </label>
               </div>
@@ -491,15 +491,15 @@
         </div>
       </div>
     </div>
-    
+
         <!-- WELCOME MODAL -->
-        
-        <div class="modal fade" id="instructions" tabindex="-1" 
+
+        <div class="modal fade" id="instructions" tabindex="-1"
         role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" 
+                <button type="button" class="close" data-dismiss="modal"
                 aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <i class="fa fa-lg fa-space-shuttle fa-rotate-270"></i>
@@ -555,27 +555,27 @@
                   </p>
                   <p>
                     <strong>9:41am </strong><i></i>
-                    Click on the date, time or location to open 
+                    Click on the date, time or location to open
                     the settings panel and edit these settings.
                   </p>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-sm btn-primary-outline" 
+                <button type="submit" class="btn btn-sm btn-primary-outline"
                 data-dismiss="modal">Got it</button>
               </div>
             </div>
           </div>
         </div>
-        
+
         <!-- ABOUT MODAL -->
-        
-        <div class="modal fade" id="about" tabindex="-1" 
+
+        <div class="modal fade" id="about" tabindex="-1"
         role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" 
+                <button type="button" class="close" data-dismiss="modal"
                 aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title">About Firmament</h4>
@@ -592,7 +592,7 @@
                     in May-June 2016.</p>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-sm btn-primary-outline" 
+                <button type="submit" class="btn btn-sm btn-primary-outline"
                 data-dismiss="modal">Dismiss</button>
               </div>
             </div>
@@ -600,12 +600,12 @@
         </div>
 
       <!-- CHALLENGE MODE MODAL -->
-      <div class="modal fade" id="challenge-select" tabindex="-1" 
+      <div class="modal fade" id="challenge-select" tabindex="-1"
         role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" 
+              <button type="button" class="close" data-dismiss="modal"
                 aria-label="Close"><span aria-hidden="true">&times;</span>
               </button>
               <i class="fa fa-lg fa-space-shuttle fa-rotate-270"></i>
@@ -622,8 +622,8 @@
                       Name as many constellations as you can within the time limit.
                     </li>
                     <li class="instruction">
-                      <button type="submit" id="challenge-mode-single" 
-                              class="btn btn-sm btn-primary-outline" 
+                      <button type="submit" id="challenge-mode-single"
+                              class="btn btn-sm btn-primary-outline"
                               data-dismiss="modal">Play Now</button>
                     </li>
                   </ul>
@@ -637,8 +637,8 @@
                       Play with up to 4 players. Find constellations to gain points.
                     </li>
                     <li class="instruction">
-                      <button type="submit" id="multiplayer-create" 
-                              class="btn btn-sm btn-primary-outline" 
+                      <button type="submit" id="multiplayer-create"
+                              class="btn btn-sm btn-primary-outline"
                               data-dismiss="modal">Create Game</button>
                     </li>
                   </ul>
@@ -648,7 +648,7 @@
           </div>
         </div>
       </div>
-    
+
     <!-- SIDEBAR -->
     <div id="sidebar" class="collapse">
 			<!-- templates inserted dynamically -->
@@ -665,13 +665,13 @@
     </div>
 
     <!-- FOOTER BAR -->
-    
+
     <div id="gui" class="no-select">
       <nav class="navbar navbar-fixed-bottom navbar-dark">
         <ul class="nav navbar-nav">
           <li class="nav-item nav-lab">
             <a id="instr-button" href="#instructions">
-              <!-- instructions --> 
+              <!-- instructions -->
               <i class="fa fa-lg fa-question-circle ttip ttip-r">
                 <span class="ttip-text">Need Help?</span>
               </i>
@@ -693,7 +693,7 @@
             <span class="nav-item">
               <a class="navbar-brand" href="#skyset" id="date">
               </a>
-            </span>                  
+            </span>
             <span class="nav-item nav-l nav-text">
               at
             </span>
@@ -709,18 +709,18 @@
             <span class="nav-item">
               <a class="navbar-brand" href="#skyset" id="datetime">
               </a>
-            </span>                  
+            </span>
           </li>
           <li id="mobile-sky-control">
             <span class="navbar-brand">
               Sky Settings
             </span>
             <span class="nav-item nav-lab">
-              <a class="label label-nav action-label" 
+              <a class="label label-nav action-label"
               id="mobile-skyset" href="#skyset">Edit</a>
             </span>
           </li>
-        </ul> 
+        </ul>
 
         <ul class="nav navbar-nav pull-xs-right">
           <li class="nav-item nav-r">
@@ -741,16 +741,16 @@
 
           <li class="nav-item nav-lab">
             <span class="setting-icon setting-icon-on" data-toggle="ground">
-              <!-- ground --> 
+              <!-- ground -->
               <i class="fa fa-lg fa-tree ttip ttip-r">
                 <span class="ttip-text">Toggle Ground</span>
               </i>
             </span>
           </li>
           <li class="nav-item nav-lab">
-            <span class="setting-icon setting-icon-on" 
+            <span class="setting-icon setting-icon-on"
             data-toggle="constellations">
-              <!-- constellation --> 
+              <!-- constellation -->
               <i class="fa fa-lg fa-crosshairs ttip ttip-r">
                 <span class="ttip-text">Toggle Guides</span>
               </i>
@@ -758,7 +758,7 @@
           </li>
           <li class="nav-item nav-lab" id="label-button-container">
             <span class="setting-icon" data-toggle="labels">
-              <!-- labels --> 
+              <!-- labels -->
               <i class="fa fa-lg fa-tag ttip ttip-r">
                 <span class="ttip-text">Toggle Labels</span>
               </i>
@@ -766,16 +766,16 @@
           </li>
           <li class="nav-item nav-lab">
             <span class="setting-icon setting-icon-on" data-toggle="compass">
-              <!-- compass --> 
+              <!-- compass -->
               <i class="fa fa-lg fa-compass ttip ttip-r">
                 <span class="ttip-text">Toggle Compass</span>
               </i>
             </span>
           </li>
           <li class="nav-item nav-lab">
-            <span class="setting-icon setting-icon-on disabled" 
+            <span class="setting-icon setting-icon-on disabled"
             id="sidebar-button">
-              <!-- sidebar --> 
+              <!-- sidebar -->
               <i class="fa fa-lg fa-bars ttip ttip-r">
                 <span class="ttip-text">Toggle Sidebar</span>
               </i>
@@ -784,7 +784,13 @@
         </ul>
       </nav>
     </div>
-    
-    <script data-main="assets/js/main" src="assets/js/require.js"></script>
+
+    <script src="assets/js/lib/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/lib/bootstrap.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <script src="assets/js/lib/mustache.min.js"></script>
+    <script src="assets/js/lib/three.min.js"></script>
+
+    <script src="bundle.js"></script>
   </body>
 </html>

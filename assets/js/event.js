@@ -1,5 +1,4 @@
-define(['jquery'],
-function($) {
+export default (function() {
 
   // object holding all channels
   var channels = {};
@@ -27,4 +26,4 @@ function($) {
     fire: fire,
     on: on
   };
-});
+})();

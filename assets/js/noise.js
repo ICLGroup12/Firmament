@@ -7,9 +7,7 @@
  *
  * Ported to Javascript and adapted for Firmament
  */
-
-define(['three'],
-function(THREE) {
+export default (function() {
 
 var SimplexNoise = function() {
 
@@ -105,7 +103,7 @@ var SimplexNoise = function() {
     // Add contributions from each corner to get the final noise value.
     // The result is scaled to return values in the interval [-1,1].
     return 70.0 * (n0 + n1 + n2);
-  };
+  }
 
 	function sumOctave(x, y, octaves, persistence, freq, low, high) {
     let amp = 1, noise = 0;
@@ -119,7 +117,7 @@ var SimplexNoise = function() {
 		}
 
     return (noise * (high - low) / 2 + (high + low) / 2) / max;
-	};
+	}
 
   return {
     noise,
@@ -132,4 +130,4 @@ return {
   SimplexNoise
 };
 
-});
+})();

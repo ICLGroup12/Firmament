@@ -1,5 +1,9 @@
-define(['jquery', 'api', 'event', 'astro', 'quiz'],
-function($, FAPI, FEVENT, ASTRO, FQUIZ) {
+import FAPI from './api.js';
+import FEVENT from './event.js';
+import FQUIZ from './quiz.js';
+import ASTRO from './astro.js';
+
+export default (function() {
 
   var placeTime = new ASTRO.PlaceTime();
 
@@ -369,4 +373,4 @@ function($, FAPI, FEVENT, ASTRO, FQUIZ) {
       FEVENT.fire('placetime');
     }
   };
-});
+})();

@@ -40,7 +40,11 @@ app.use('/assets', express.static(__dirname + '/assets'));
 
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html'); 
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/bundle.js', function(req, res) {
+    res.sendFile(__dirname + '/bundle.js');
 });
 
 app.get('/ping', function(req, res) {
@@ -48,15 +52,15 @@ app.get('/ping', function(req, res) {
 });
 
 app.get('/stars', function(req, res) {
-    res.sendFile(__dirname + '/data/stars.json');    
+    res.sendFile(__dirname + '/data/stars.json');
 });
 
 app.get('/constellations', function(req, res) {
-    res.sendFile(__dirname + '/data/constellations.json');    
+    res.sendFile(__dirname + '/data/constellations.json');
 });
 
 app.get('/families', function(req, res) {
-    res.sendFile(__dirname + '/data/families.json');    
+    res.sendFile(__dirname + '/data/families.json');
 });
 
 app.get('/user/progress/:family', function(req, res) {

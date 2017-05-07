@@ -1,5 +1,4 @@
-define(['jquery'],
-function($) {
+export default (function() {
   const urls = {
     ping:           "ping",
 
@@ -43,4 +42,4 @@ function($) {
       return $.post(urls.lobbyFinish + "/" + lobbyId, payload);
     }
   };
-});
+})();

@@ -1,5 +1,7 @@
-define(['jquery', 'event', 'model', 'moment', 'mustache', 'bootstrap'],
-function($, FEVENT, FMODEL, Moment, Mustache) {
+import FEVENT from './event.js';
+import FMODEL from './model.js';
+
+export default (function() {
 
   function init() {
 
@@ -154,7 +156,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
       $('#skyset').on('show.bs.modal', function() {
         $("#longitude-input").val(FMODEL.longitude * (180 / Math.PI));
         $("#latitude-input").val(FMODEL.latitude * (180 / Math.PI));
-        $("#datetime-input").val(new Moment(FMODEL.time).format("YYYY-MM-DD HH:mm"));
+        $("#datetime-input").val(new moment(FMODEL.time).format("YYYY-MM-DD HH:mm"));
       });
 
       $("#settings-form").submit(function(event) {
@@ -168,7 +170,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
         var longInput     = $("#longitude-input").val();
         var dateTimeInput = $("#datetime-input").val();
 
-        var date      = new Moment(dateTimeInput, "YYYY-MM-DD HH:mm");
+        var date      = new moment(dateTimeInput, "YYYY-MM-DD HH:mm");
         var latitude  = parseFloat(latInput);
         var longitude = parseFloat(longInput);
 
@@ -279,7 +281,7 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
   }
 
   function renderFooterbar() {
-    var date = new Moment(FMODEL.time);
+    var date = new moment(FMODEL.time);
     var lat  = FMODEL.latitude;
     var lon  = FMODEL.longitude;
 
@@ -489,4 +491,4 @@ function($, FEVENT, FMODEL, Moment, Mustache) {
 
     renderLeaderboard: renderLeaderboard
   };
-});
+})();

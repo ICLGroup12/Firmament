@@ -1,8 +1,8 @@
-define(['three', 'noise'],
-function(THREE, noise) {
+import noise from './noise.js';
+export default (function() {
 
 THREE.TerrainGeometry = function(size, points) {
-  
+
   THREE.PlaneGeometry.call(this, size, size, points - 1, points - 1);
 
   const simplex = new noise.SimplexNoise();
@@ -20,4 +20,4 @@ THREE.TerrainGeometry = function(size, points) {
 THREE.TerrainGeometry.prototype = Object.create(THREE.PlaneGeometry.prototype);
 THREE.TerrainGeometry.prototype.constructor = THREE.TerrainGeometry;
 
-});
+})();

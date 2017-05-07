@@ -1,5 +1,9 @@
-define(['three', 'event', 'model', 'text'],
-function(THREE, FEVENT, FMODEL) {
+import './text.js';
+
+import FEVENT from './event.js';
+import FMODEL from './model.js';
+
+export default (function() {
 
   var Vector3      = THREE.Vector3,
       TextMaterial = THREE.TextMaterial,
@@ -36,4 +40,4 @@ function(THREE, FEVENT, FMODEL) {
   return {
     Labels: Labels
   };
-});
+})();

@@ -1,5 +1,4 @@
-define(['three'],
-function(THREE) {
+export default (function() {
 
 THREE.TextMaterial = function(text) {
   const texture = this.textToTexture(text);
@@ -16,7 +15,7 @@ THREE.TextMaterial.prototype.textToTexture = (function() {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
 
-  canvas.width  = fontSize * 32; // rough estimate 
+  canvas.width  = fontSize * 32; // rough estimate
   canvas.height = fontSize * 2;
 
   context.font      = fontSize + "px Helvetica";
@@ -34,4 +33,4 @@ THREE.TextMaterial.prototype.textToTexture = (function() {
   };
 })();
 
-});
+})();

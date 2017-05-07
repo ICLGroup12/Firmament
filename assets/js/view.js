@@ -1,5 +1,14 @@
-define(['jquery', 'event','three', 'model', 'controls', 'constellations', 'ground', 'labels', 'sky', 'stars', 'compass'],
-function($, FEVENT, THREE, FMODEL, FCONTROLS, FCONSTELLATIONS, FGROUND, FLABELS, FSKY, FSTARS, FCOMPASS) {
+import FEVENT from './event.js';
+import FMODEL from './model.js';
+import FCONTROLS from './controls.js';
+import FCONSTELLATIONS from './constellations.js';
+import FGROUND from './ground.js';
+import FLABELS from './labels.js';
+import FSKY from './sky.js';
+import FSTARS from './stars.js';
+import FCOMPASS from './compass.js';
+
+export default (function() {
 
   const PerspectiveCamera    = THREE.PerspectiveCamera,
         Scene                = THREE.Scene,
@@ -210,4 +219,4 @@ function($, FEVENT, THREE, FMODEL, FCONTROLS, FCONSTELLATIONS, FGROUND, FLABELS,
     glideToAngles,
     getViewCenterPoint
   };
-});
+})();

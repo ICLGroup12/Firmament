@@ -1,5 +1,9 @@
-define(['three', 'event', 'model', 'skyshader'],
-function(THREE, FEVENT, FMODEL) {
+import './skyshader.js';
+
+import FEVENT from './event.js';
+import FMODEL from './model.js';
+
+export default (function() {
 
   const SphereBufferGeometry = THREE.SphereBufferGeometry,
         SkyMaterial          = THREE.SkyMaterial,
@@ -40,4 +44,4 @@ function(THREE, FEVENT, FMODEL) {
     Sky: Sky
   };
 
-});
+})();

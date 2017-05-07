@@ -1,4 +1,4 @@
-define(function() {
+export default (function() {
 
   const PI    = Math.PI,
         PI2   = Math.PI * 2,
@@ -186,4 +186,4 @@ define(function() {
     EquatorialPosition,
     PlaceTime
   };
-});
+})();

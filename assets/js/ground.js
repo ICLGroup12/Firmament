@@ -1,5 +1,6 @@
-define(['three', 'terrain'],
-function(THREE) {
+import './terrain.js';
+
+export default (function() {
 
   var TerrainGeometry     = THREE.TerrainGeometry,
       MeshLambertMaterial = THREE.MeshLambertMaterial,
@@ -27,4 +28,4 @@ function(THREE) {
   return {
     Ground: Ground
   };
-});
+})();

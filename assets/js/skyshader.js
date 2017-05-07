@@ -2,8 +2,8 @@
  * Adapted for Firmament from
  * https://github.com/mrdoob/three.js/blob/master/examples/js/SkyShader.js
  */
-define(['three'],
-function(THREE) {
+
+export default (function() {
 
 THREE.ShaderLib.sky = {
   uniforms: {
@@ -125,7 +125,7 @@ THREE.ShaderLib.sky = {
 
       // relative optical mass for Rayleigh and Mie
       "float sR = rayleighZenithLength * AM;",
-      "float sM = mieZenithLength * AM;", 
+      "float sM = mieZenithLength * AM;",
 
       // combined extinction factor exponential falloff
       "vec3 Fex = exp(-(betaR * sR + betaM * sM));",
@@ -174,4 +174,4 @@ THREE.SkyMaterial = function () {
   });
 };
 
-});
+})();

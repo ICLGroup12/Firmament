@@ -1,6 +1,4 @@
-define(['three'],
-function(THREE) {
-
+export default (function() {
 THREE.ShaderLib.stars = {
   uniforms: {
     texture: {type: "t", value: {}},
@@ -9,9 +7,9 @@ THREE.ShaderLib.stars = {
   vertexShader: [
     'attribute vec3 colour;',
     'attribute float size;',
-    
+
     'varying vec3 vColour;',
-    
+
     'void main() {',
       'vColour = colour;',
       'vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);',
@@ -45,4 +43,4 @@ THREE.StarMaterial = function() {
   });
 };
 
-});
+})();

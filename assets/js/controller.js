@@ -1,5 +1,10 @@
-define(['jquery', 'api', 'event', 'model', 'gui', 'view'], 
-function($, FAPI, FEVENT, FMODEL, FGUI, FVIEW) {
+import FAPI from './api.js';
+import FEVENT from './event.js';
+import FMODEL from './model.js';
+import FGUI from './gui.js';
+import FVIEW from './view.js';
+
+export default (function() {
 
   var timeMultiplier     = 1.0;
   var timeUpdateInterval = 32;
@@ -28,18 +33,18 @@ function($, FAPI, FEVENT, FMODEL, FGUI, FVIEW) {
       event.fail(response.responseJSON.error);
     });
   }
-  
+
   function onLogoutSubmit(event) {
     FAPI.logoutPOST().success(function() {
       FMODEL.refreshUserProfile();
       event.success();
-    }); 
+    });
   }
 
   function onToggleButtonClick(event) {
     FMODEL.toggleVisibility(event.button);
   }
-  
+
   function onPlaceTimeChange(event) {
     FGUI.renderFooterbar();
   }
@@ -54,7 +59,7 @@ function($, FAPI, FEVENT, FMODEL, FGUI, FVIEW) {
     } else if (timeMultiplier <= -256) {
       timeMultiplier *= 4;
     } else {
-      timeMultiplier = -256;          
+      timeMultiplier = -256;
     }
   }
 
@@ -64,16 +69,16 @@ function($, FAPI, FEVENT, FMODEL, FGUI, FVIEW) {
     } else if (timeMultiplier >= 256) {
       timeMultiplier *= 4;
     } else {
-      timeMultiplier = 256;          
+      timeMultiplier = 256;
     }
   }
 
   function onTimePause(event) {
-    timeMultiplier = 0;          
+    timeMultiplier = 0;
   }
 
   function onTimePlay(event) {
-    timeMultiplier = 1;          
+    timeMultiplier = 1;
   }
 
   function onSelectFamily(event) {
@@ -209,7 +214,7 @@ function($, FAPI, FEVENT, FMODEL, FGUI, FVIEW) {
       if (data.status != "ended") {
         setTimeout(lobbyCompleteCheck, 4000);
       } else {
-        FGUI.cleanupLobbyEnd();   
+        FGUI.cleanupLobbyEnd();
       }
     });
   }
@@ -263,4 +268,4 @@ function($, FAPI, FEVENT, FMODEL, FGUI, FVIEW) {
     }
   };
 
-});
+})();

@@ -1,20 +1,7 @@
-requirejs.config({
-    baseUrl: 'assets/js/',
-    paths: {
-        bootstrap: 'lib/bootstrap',
-        jquery:   'lib/jquery-2.2.4.min',
-        three:    'lib/three.min',
-        mustache: 'lib/mustache.min',
-        moment:   'lib/moment.min'
-    },
-    shim: {
-        "bootstrap":  {"deps": ['jquery']}
-    }
-});
-
-
-require(['model', 'view', 'controller', 'gui'],
-function(FMODEL, FVIEW, FCONTROLLER, FGUI) {
+import FMODEL from './model.js';
+import FVIEW from './view.js';
+import FCONTROLLER from './controller.js';
+import FGUI from './gui.js';
 
 console.log([
 ' ___ _ ___ __ __  __  __ __ ___ __  _ _____  ',
@@ -35,5 +22,3 @@ window.FIRMAMENT_EXPOSE = function() {
 	window.fg = FGUI;
 	window.fc = FCONTROLLER;
 };
-
-});

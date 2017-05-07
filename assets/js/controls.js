@@ -1,5 +1,4 @@
-define(['jquery', 'three'],
-function($, THREE) {
+export default (function() {
 
   function Controls(camera) {
     this.camera = camera;
@@ -155,4 +154,4 @@ function($, THREE) {
   return {
     Controls: Controls
   };
-});
+})();
