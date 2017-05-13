@@ -1,5 +1,5 @@
-//import resolve from 'rollup-plugin-node-resolve';
-//import common from 'rollup-plugin-commonjs';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 
 export default {
@@ -8,6 +8,13 @@ export default {
   dest: 'bundle.js',
   sourceMap: 'inline',
   plugins: [
+		resolve({jsnext: true, main: true}),
+    commonjs({
+      namedExports: {
+        'node_modules/jquery/dist/jquery.min.js': [ 'jquery' ],
+        'node_modules/bootstrap/dist/js/bootstrap.min.js' : ['bootstrap'],
+      }
+    }),
     babel({
       exclude: ['node_modules/**', 'assets/js/lib/**']
     }),

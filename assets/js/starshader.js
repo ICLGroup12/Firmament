@@ -1,5 +1,6 @@
-export default (function() {
-THREE.ShaderLib.stars = {
+import {ShaderLib, ShaderMaterial, UniformsUtils, AdditiveBlending} from 'three';
+
+ShaderLib.stars = {
   uniforms: {
     texture: {type: "t", value: {}},
     opacity: {type: "f", value: 1.0}
@@ -30,17 +31,17 @@ THREE.ShaderLib.stars = {
   ].join('\n')
 };
 
-THREE.StarMaterial = function() {
-  const starShader   = THREE.ShaderLib.stars;
-  const starUniforms = THREE.UniformsUtils.clone(starShader.uniforms);
-  return new THREE.ShaderMaterial({
+function StarMaterial() {
+  const starShader   = ShaderLib.stars;
+  const starUniforms = UniformsUtils.clone(starShader.uniforms);
+  return new ShaderMaterial({
     fragmentShader: starShader.fragmentShader,
     vertexShader: starShader.vertexShader,
     uniforms: starUniforms,
-    blending: THREE.AdditiveBlending,
+    blending: AdditiveBlending,
     transparent: true,
     depthWrite: false
   });
-};
+}
 
-})();
+export {StarMaterial};

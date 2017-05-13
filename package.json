@@ -1,17 +1,25 @@
 {
-	"name": "firmament",
-	"main": "mockwebapp.js",
+  "name": "firmament",
+  "main": "mockwebapp.js",
   "scripts": {
     "build": "rollup -c",
-    "start": "node mockwebapp.js"
+    "start": "node mockwebapp.js",
+    "prestart": "npm run build"
   },
   "devDependencies": {
     "rollup": "^0.41.4",
     "rollup-plugin-babel": "^2.7.1",
-    "body-parser" : "^1.17.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "body-parser": "^1.17.1",
     "express": "^4.15.2"
   },
   "jshintConfig": {
     "esversion": 6
+  },
+  "dependencies": {
+    "moment": "^2.18.1",
+    "mustache": "^2.3.0",
+    "three": "^0.85.2"
   }
 }

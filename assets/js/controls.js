@@ -1,3 +1,5 @@
+import { Vector3 } from 'three';
+
 export default (function() {
 
   function Controls(camera) {
@@ -104,7 +106,7 @@ export default (function() {
       clearInterval(this.activePanInterval);
     }
 
-    var cXYZ = new THREE.Vector3(0, 0, -xyz.length());
+    var cXYZ = new Vector3(0, 0, -xyz.length());
     cXYZ.applyQuaternion(this.camera.quaternion);
 
     var i = 1;
@@ -117,7 +119,7 @@ export default (function() {
         return;
       }
 
-      var cam = new THREE.Vector3().lerpVectors(cXYZ, xyz, i / that.glideSteps);
+      var cam = new Vector3().lerpVectors(cXYZ, xyz, i / that.glideSteps);
       that.camera.lookAt(cam);
       i++;
     };
@@ -152,6 +154,6 @@ export default (function() {
   };
 
   return {
-    Controls: Controls
+    Controls
   };
 })();

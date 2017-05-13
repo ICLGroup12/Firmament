@@ -1,3 +1,6 @@
+import moment from 'moment';
+import Mustache from 'mustache';
+
 import FEVENT from './event.js';
 import FMODEL from './model.js';
 
@@ -453,9 +456,9 @@ export default (function() {
     var template = $("#leader").html();
     var toPerson = function(leader, idx) {
 	  return {
-		rank: idx,
-		score: leader.score * 100,
-		name: leader.name
+        rank: idx,
+        score: leader.score * 100,
+        name: leader.name
       };
     };
 

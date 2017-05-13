@@ -1,9 +1,9 @@
+import {PlaneGeometry} from 'three';
 import noise from './noise.js';
-export default (function() {
 
-THREE.TerrainGeometry = function(size, points) {
+function TerrainGeometry(size, points) {
 
-  THREE.PlaneGeometry.call(this, size, size, points - 1, points - 1);
+  PlaneGeometry.call(this, size, size, points - 1, points - 1);
 
   const simplex = new noise.SimplexNoise();
   const nVertices = this.vertices.length;
@@ -15,9 +15,9 @@ THREE.TerrainGeometry = function(size, points) {
   // ensure center point at 0 height
   const centerVertex = (~~(points / 2) + 0.5) * points;
   this.translate(0, 0, -this.vertices[centerVertex].z);
-};
+}
 
-THREE.TerrainGeometry.prototype = Object.create(THREE.PlaneGeometry.prototype);
-THREE.TerrainGeometry.prototype.constructor = THREE.TerrainGeometry;
+TerrainGeometry.prototype = Object.create(PlaneGeometry.prototype);
+TerrainGeometry.prototype.constructor = TerrainGeometry;
 
-})();
+export {TerrainGeometry};

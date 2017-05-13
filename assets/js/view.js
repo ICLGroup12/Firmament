@@ -1,28 +1,27 @@
 import FEVENT from './event.js';
 import FMODEL from './model.js';
 import FCONTROLS from './controls.js';
-import FCONSTELLATIONS from './constellations.js';
-import FGROUND from './ground.js';
-import FLABELS from './labels.js';
-import FSKY from './sky.js';
-import FSTARS from './stars.js';
-import FCOMPASS from './compass.js';
+
+import {Vector3, PerspectiveCamera, Scene, WebGLRenderer, Euler} from 'three';
+import {Sky} from './sky.js';
+import {Stars} from './stars.js';
+import {Constellations} from './constellations.js';
+import {Ground} from './ground.js';
+import {Compass} from './compass.js';
+import {Labels} from './labels.js';
+
+
+Vector3.prototype.fromAngles = function(theta, phi) {
+  this.x = Math.cos(phi) * Math.cos(theta);
+  this.y = Math.cos(phi) * Math.sin(theta);
+  this.z = Math.sin(phi);
+  return this;
+};
+
+
 
 export default (function() {
-
-  const PerspectiveCamera    = THREE.PerspectiveCamera,
-        Scene                = THREE.Scene,
-        WebGLRenderer        = THREE.WebGLRenderer,
-        Vector3              = THREE.Vector3,
-
-        Controls             = FCONTROLS.Controls,
-
-        Constellations       = FCONSTELLATIONS.Constellations,
-        Ground               = FGROUND.Ground,
-        Sky                  = FSKY.Sky,
-        Stars                = FSTARS.Stars,
-        Compass              = FCOMPASS.Compass,
-        Labels               = FLABELS.Labels;
+  const Controls             = FCONTROLS.Controls;
 
   const constellationColour = 0xffffff,
         farPlane            = 4096,  // far clipping plane
@@ -31,7 +30,7 @@ export default (function() {
         labelRadius         = 640,
         fov                 = 76,    // camera field of view
         nearPlane           = 0.1,   // near clipping plane
-        antialiasing        = false;  // attempt antialiasing
+        antialiasing        = true;  // attempt antialiasing
 
   var scene,
       controls;
@@ -155,13 +154,6 @@ export default (function() {
     scene.add(ground);
   }
 
-  THREE.Vector3.prototype.fromAngles = function(theta, phi) {
-    this.x = Math.cos(phi) * Math.cos(theta);
-    this.y = Math.cos(phi) * Math.sin(theta);
-    this.z = Math.sin(phi);
-    return this;
-  };
-
   function toggleVisibility(objectName) {
     let obj = scene.getObjectByName(objectName, true);
     if (typeof obj === 'undefined') {
@@ -200,7 +192,7 @@ export default (function() {
     // position
     let pos = new Vector3().fromAngles(yaw, pitch);
     const cRot = FMODEL.getCelestialSphereRot();
-    var rot  = new THREE.Euler(-cRot.x, -cRot.y, -cRot.z);
+    var rot  = new Euler(-cRot.x, -cRot.y, -cRot.z);
     pos.applyEuler(rot);
 
     // convert back into Ra/Dec

@@ -1,31 +1,22 @@
-import './terrain.js';
+import {MeshLambertMaterial, Mesh, Object3D} from 'three';
+import {TerrainGeometry} from './terrain.js';
 
-export default (function() {
+function Ground(size, wireColour, fillColour) {
+  Object3D.call(this);
+  var that = this;
+  this.name = "ground";
 
-  var TerrainGeometry     = THREE.TerrainGeometry,
-      MeshLambertMaterial = THREE.MeshLambertMaterial,
-      Mesh                = THREE.Mesh,
-      Object3D            = THREE.Object3D;
+  var geometry    = new TerrainGeometry(size, size / 4);
+  var material    = new MeshLambertMaterial({color: fillColour});
+  var wireframe   = new MeshLambertMaterial({color: wireColour, wireframe: true});
+  var solidGround = new Mesh(geometry, material);
+  var wiredGround = new Mesh(geometry, wireframe);
 
-  function Ground(size, wireColour, fillColour) {
-    Object3D.call(this);
-    var that = this;
-    this.name = "ground";
+  this.add(solidGround);
+  this.add(wiredGround);
+}
 
-    var geometry    = new TerrainGeometry(size, size / 4);
-    var material    = new MeshLambertMaterial({color: fillColour});
-    var wireframe   = new MeshLambertMaterial({color: wireColour, wireframe: true});
-    var solidGround = new Mesh(geometry, material);
-    var wiredGround = new Mesh(geometry, wireframe);
+Ground.prototype = Object.create(Object3D.prototype);
+Ground.prototype.constructor = Ground;
 
-    this.add(solidGround);
-    this.add(wiredGround);
-  }
-
-  Ground.prototype = Object.create(THREE.Object3D.prototype);
-  Ground.prototype.constructor = Ground;
-
-  return {
-    Ground: Ground
-  };
-})();
+export {Ground};

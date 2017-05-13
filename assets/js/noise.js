@@ -7,17 +7,14 @@
  *
  * Ported to Javascript and adapted for Firmament
  */
+import {Vector3, Vector2} from 'three';
 export default (function() {
 
 var SimplexNoise = function() {
-
-  var Vec3 = THREE.Vector3;
-  var Vec2 = THREE.Vector2;
-
   const grad3 = [
-    new Vec3(1,1,0), new Vec3(-1,1,0), new Vec3(1,-1,0), new Vec3(-1,-1,0),
-    new Vec3(1,0,1), new Vec3(-1,0,1), new Vec3(1,0,-1), new Vec3(-1,0,-1),
-    new Vec3(0,1,1), new Vec3(0,-1,1), new Vec3(0,1,-1), new Vec3(0,-1,-1)
+    new Vector3(1,1,0), new Vector3(-1,1,0), new Vector3(1,-1,0), new Vector3(-1,-1,0),
+    new Vector3(1,0,1), new Vector3(-1,0,1), new Vector3(1,0,-1), new Vector3(-1,0,-1),
+    new Vector3(0,1,1), new Vector3(0,-1,1), new Vector3(0,1,-1), new Vector3(0,-1,-1)
   ];
 
   const p = [
@@ -84,21 +81,21 @@ var SimplexNoise = function() {
       n0 = 0.0;
     } else {
       t0 *= t0;
-      n0 = t0 * t0 * new Vec2(x0, y0).dot(grad3[gi0]);  // (x,y) of grad3 used for 2D gradient
+      n0 = t0 * t0 * new Vector2(x0, y0).dot(grad3[gi0]);  // (x,y) of grad3 used for 2D gradient
     }
     let t1 = 0.5 - x1 * x1 - y1 * y1;
     if(t1 < 0) {
       n1 = 0.0;
     } else {
       t1 *= t1;
-      n1 = t1 * t1 * new Vec2(x1, y1).dot(grad3[gi1]);
+      n1 = t1 * t1 * new Vector2(x1, y1).dot(grad3[gi1]);
     }
     let t2 = 0.5 - x2 * x2 - y2 * y2;
     if(t2 < 0) {
       n2 = 0.0;
     } else {
       t2 *= t2;
-      n2 = t2 * t2 * new Vec2(x2, y2).dot(grad3[gi2]);
+      n2 = t2 * t2 * new Vector2(x2, y2).dot(grad3[gi2]);
     }
     // Add contributions from each corner to get the final noise value.
     // The result is scaled to return values in the interval [-1,1].

@@ -1,11 +1,12 @@
+import { PlaceTime, Family, Star, EquatorialPosition, Constellation } from './astro.js';
+
 import FAPI from './api.js';
 import FEVENT from './event.js';
 import FQUIZ from './quiz.js';
-import ASTRO from './astro.js';
 
 export default (function() {
 
-  var placeTime = new ASTRO.PlaceTime();
+  var placeTime = new PlaceTime();
 
   var stars = {},
       constellations = {},
@@ -29,7 +30,7 @@ export default (function() {
     // load data off server
     FAPI.familiesGET().then(function(data) {
       data.forEach(function(v, i) {
-        families[v.name] = new ASTRO.Family(v);
+        families[v.name] = new Family(v);
       });
     }).done(function() {
       familiesLoaded.resolve(families);
@@ -37,7 +38,7 @@ export default (function() {
 
     FAPI.starsGET().then(function(data) {
       data.forEach(function(v, i) {
-        stars[v.hid] = new ASTRO.Star(v);
+        stars[v.hid] = new Star(v);
       });
     }).done(function() {
       starsLoaded.resolve(stars);
@@ -45,7 +46,7 @@ export default (function() {
 
     FAPI.constellationsGET().then(function(data) {
       data.forEach(function(v, i) {
-        constellations[v.name] = new ASTRO.Constellation(v);
+        constellations[v.name] = new Constellation(v);
       });
     }).done(function() {
       constellationsLoaded.resolve(constellations);
@@ -85,7 +86,7 @@ export default (function() {
       console.warn("No such constellation: " + name);
       return;
     }
-    return new ASTRO.EquatorialPosition(c.ra, c.dec).toAltAz(placeTime);
+    return new EquatorialPosition(c.ra, c.dec).toAltAz(placeTime);
   }
 
   function getFamily(name) {

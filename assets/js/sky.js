@@ -1,47 +1,35 @@
-import './skyshader.js';
+import { BackSide, SphereBufferGeometry, Vector3, Object3D, Mesh, DirectionalLight } from 'three';
+import { SkyMaterial } from './skyshader.js';
 
 import FEVENT from './event.js';
 import FMODEL from './model.js';
 
-export default (function() {
+function Sky(radius) {
+  Object3D.call(this);
+  var that = this;
+  this.name = "sky";
 
-  const SphereBufferGeometry = THREE.SphereBufferGeometry,
-        SkyMaterial          = THREE.SkyMaterial,
-        Vector3              = THREE.Vector3,
-        Object3D             = THREE.Object3D,
-        Mesh                 = THREE.Mesh,
-        DirectionalLight     = THREE.DirectionalLight;
+  // sky
+  const geometry  = new SphereBufferGeometry(radius);
+  const material  = new SkyMaterial();
+  material.side = BackSide;
+  const sky = new Mesh(geometry, material);
 
-  function Sky(radius) {
-    Object3D.call(this);
-    var that = this;
-    this.name = "sky";
+  // sun light
+  const light = new DirectionalLight(0xf7f7e7, 0.8);
 
-    // sky
-    const geometry  = new SphereBufferGeometry(radius);
-    const material  = new SkyMaterial();
-    material.side = THREE.BackSide;
-    const sky = new Mesh(geometry, material);
+  FEVENT.on('placetime', function() {
+    const sunAltAz = FMODEL.getSunAltAz();
+    const sunXYZ   = new Vector3().fromAngles(sunAltAz.az, sunAltAz.alt);
+    sunXYZ.multiplyScalar(radius);
+    material.uniforms.sunPosition.value.copy(sunXYZ);
+    light.position.copy(sunXYZ);
+  });
 
-    // sun light
-    const light = new DirectionalLight(0xf7f7e7, 0.8);
+  this.add(sky, light);
+}
 
-    FEVENT.on('placetime', function() {
-      const sunAltAz = FMODEL.getSunAltAz();
-      const sunXYZ   = new Vector3().fromAngles(sunAltAz.az, sunAltAz.alt);
-      sunXYZ.multiplyScalar(radius);
-      material.uniforms.sunPosition.value.copy(sunXYZ);
-      light.position.copy(sunXYZ);
-    });
+Sky.prototype = Object.create(Object3D.prototype);
+Sky.prototype.constructor = Sky;
 
-    this.add(sky, light);
-  }
-
-  Sky.prototype = Object.create(THREE.Object3D.prototype);
-  Sky.prototype.constructor = Sky;
-
-  return {
-    Sky: Sky
-  };
-
-})();
+export { Sky };

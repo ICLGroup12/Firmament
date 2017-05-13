@@ -1,14 +1,14 @@
-export default (function() {
+import {SpriteMaterial, Texture, LinearFilter} from 'three';
 
-THREE.TextMaterial = function(text) {
+function TextMaterial(text) {
   const texture = this.textToTexture(text);
-  THREE.SpriteMaterial.call(this, {map: texture, depthTest: true});
-};
+  SpriteMaterial.call(this, {map: texture, depthTest: true});
+}
 
-THREE.TextMaterial.prototype = Object.create(THREE.SpriteMaterial.prototype);
-THREE.TextMaterial.prototype.constructor = THREE.TextMaterial;
+TextMaterial.prototype = Object.create(SpriteMaterial.prototype);
+TextMaterial.prototype.constructor = TextMaterial;
 
-THREE.TextMaterial.prototype.textToTexture = (function() {
+TextMaterial.prototype.textToTexture = (function() {
   const fontSize = 16;
 
   // create an off screen canvas for rendering text
@@ -26,11 +26,11 @@ THREE.TextMaterial.prototype.textToTexture = (function() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillText(text, 0, fontSize);
     const textWidth = context.measureText(text).width;
-    const tex = new THREE.Texture(context.getImageData(0, 0, textWidth, fontSize * 2));
-    tex.minFilter = THREE.LinearFilter;
+    const tex = new Texture(context.getImageData(0, 0, textWidth, fontSize * 2));
+    tex.minFilter = LinearFilter;
     tex.needsUpdate = true;
     return tex;
   };
 })();
 
-})();
+export { TextMaterial };
