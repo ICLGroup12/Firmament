@@ -2,7 +2,7 @@ import FEVENT from './event.js';
 import FMODEL from './model.js';
 import FCONTROLS from './controls.js';
 
-import {Vector3, PerspectiveCamera, Scene, WebGLRenderer, Euler} from 'three';
+import {Vector3, OrthographicCamera, PerspectiveCamera, Scene, WebGLRenderer, Euler} from 'three';
 import {Sky} from './sky.js';
 import {Stars} from './stars.js';
 import {Constellations} from './constellations.js';

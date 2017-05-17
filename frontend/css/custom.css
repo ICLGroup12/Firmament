@@ -14,7 +14,7 @@ body {
 }
 
 #welcome-family-select,
-#family-view-name, 
+#family-view-name,
 #const-view-name {
   margin-top: 1vh;
 }
@@ -145,7 +145,7 @@ a, p, div, h1, h2, h3, h4, h5, h6 {
   letter-spacing: 3px;
 }
 
-.btn-primary-outline:focus, .btn-primary-outline.focus, 
+.btn-primary-outline:focus, .btn-primary-outline.focus,
 .btn-primary-outline:active, .btn-primary-outline.active,
 .open > .btn-primary-outline.dropdown-toggle {
   color: transparent;
@@ -158,14 +158,14 @@ a, p, div, h1, h2, h3, h4, h5, h6 {
   border-color: #f6f6f6;
 }
 
-.btn-primary-outline.disabled:focus, 
-.btn-primary-outline.disabled.focus, 
-.btn-primary-outline:disabled:focus, 
+.btn-primary-outline.disabled:focus,
+.btn-primary-outline.disabled.focus,
+.btn-primary-outline:disabled:focus,
 .btn-primary-outline:disabled.focus {
   border-color: #f6f6f6;
 }
 
-.btn-primary-outline.disabled:hover, 
+.btn-primary-outline.disabled:hover,
 .btn-primary-outline:disabled:hover {
   border-color: #f6f6f6;
 }
@@ -371,7 +371,7 @@ a.action-label-on {
 }
 
 .circle-progress {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .circle-single, .circle-single:hover {
@@ -480,7 +480,7 @@ a.list-group-item.active:hover {
   border-color: rgba(255,255,255,0);
 }
 
-a.list-group-item.disabled, 
+a.list-group-item.disabled,
 a.list-group-item.disabled:hover {
   cursor: default;
   color: rgba(255,255,255,0.3);

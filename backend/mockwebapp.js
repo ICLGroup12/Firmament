@@ -1,9 +1,17 @@
 // simple node based test server that doesn't require redis or postgres installation
 // not to be used in production (obviously)
 // only supports 1 user
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
 
-var express = require('express');
-var bodyParser = require('body-parser');
+const _projroot = path.resolve(__dirname + '/..');
+const _webroot = _projroot + '/target';
+
+let stars = JSON.parse(fs.readFileSync(_projroot + '/data/stars.json'));
+let constellations = JSON.parse(fs.readFileSync(_projroot + '/data/constellations.json'));
+let families = JSON.parse(fs.readFileSync(_projroot + '/data/families.json'));
 
 var app = express();
 
@@ -12,22 +20,22 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 // fake redis/postgres state
 var userLoggedIn = false;
 var userProgress = [
-    {name:"Orion",completed:4,total:5},
-    {name:"Zodiacal",completed:0,total:12},
-    {name:"Ursa Major",completed:0,total:10},
-    {name:"Perseus",completed:0,total:9},
-    {name:"Hercules",completed:0,total:20},
-    {name:"Bayer",completed:0,total:11},
-    {name:"Heavenly Waters",completed:0,total:9},
-    {name:"La Caille",completed:0,total:13}
+    {name:'Orion',completed:4,total:5},
+    {name:'Zodiacal',completed:0,total:12},
+    {name:'Ursa Major',completed:0,total:10},
+    {name:'Perseus',completed:0,total:9},
+    {name:'Hercules',completed:0,total:20},
+    {name:'Bayer',completed:0,total:11},
+    {name:'Heavenly Waters',completed:0,total:9},
+    {name:'La Caille',completed:0,total:13}
 ];
 
 var leaderBoard = [
-    {name:"Tony Field",score:18},
-    {name:"Jane Doe",score:10},
-    {name:"Joe Bloggs",score:5},
-    {name:"Giacomo Guerci",score:4},
-    {name:"Oliver Brown",score:1}
+    {name:'Tony Field',score:18},
+    {name:'Jane Doe',score:10},
+    {name:'Joe Bloggs',score:5},
+    {name:'Giacomo Guerci',score:4},
+    {name:'Oliver Brown',score:1}
 ];
 
 app.use(function (req, res, next) {
@@ -36,31 +44,24 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/', express.static(_webroot));
 
-
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/bundle.js', function(req, res) {
-    res.sendFile(__dirname + '/bundle.js');
-});
+app.use('/assets', express.static(_webroot + '/assets'));
 
 app.get('/ping', function(req, res) {
     res.json({message: "pong"});
 });
 
 app.get('/stars', function(req, res) {
-    res.sendFile(__dirname + '/data/stars.json');
+    res.json(stars);
 });
 
 app.get('/constellations', function(req, res) {
-    res.sendFile(__dirname + '/data/constellations.json');
+    res.json(constellations);
 });
 
 app.get('/families', function(req, res) {
-    res.sendFile(__dirname + '/data/families.json');
+    res.json(families);
 });
 
 app.get('/user/progress/:family', function(req, res) {

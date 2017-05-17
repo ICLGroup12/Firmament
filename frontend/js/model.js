@@ -2,7 +2,7 @@ import { PlaceTime, Family, Star, EquatorialPosition, Constellation } from './as
 
 import FAPI from './api.js';
 import FEVENT from './event.js';
-import FQUIZ from './quiz.js';
+import { Quiz, Question } from './quiz.js';
 
 export default (function() {
 
@@ -211,7 +211,7 @@ export default (function() {
         }
       }
     };
-    activeQuiz = new FQUIZ.Quiz(quizConf);
+    activeQuiz = new Quiz(quizConf);
 
     // turn off labels
     FEVENT.fire('visibilityoff', {objectName: "labels"});
@@ -226,7 +226,7 @@ export default (function() {
         FEVENT.fire('challengefinishevent', {result: result});
       }
     };
-    activeQuiz = new FQUIZ.Quiz(quizConf);
+    activeQuiz = new Quiz(quizConf);
 
     // turn off labels
     FEVENT.fire('visibilityoff', {objectName: "labels"});
@@ -239,7 +239,7 @@ export default (function() {
 
     var allNames = Object.keys(constellations);
     for (var i = 0, ii = allNames.length; i < ii; i++) {
-      questions.push(new FQUIZ.Question(defaultQuestion, allNames[i]));
+      questions.push(new Question(defaultQuestion, allNames[i]));
     }
 
     return questions;
@@ -253,7 +253,7 @@ export default (function() {
     var data = getFamily(family);
     // take ALL questions from current group
     data.groups[targetGroup].constellations.forEach(function(constellation) {
-      questions.push(new FQUIZ.Question(defaultQuestion, constellation));
+      questions.push(new Question(defaultQuestion, constellation));
     });
 
     for (var i = 0, ii = this.group; i < ii; i++) {
@@ -262,7 +262,7 @@ export default (function() {
       for (var j = 0, jj = gConstellations.length; j < jj; j++) {
         // 50-50 chance of being included
         if (Math.random() > 0.50) {
-          questions.push(new FQUIZ.Question(defaultQuestion, gConstellations[j]));
+          questions.push(new Question(defaultQuestion, gConstellations[j]));
         }
       }
     }

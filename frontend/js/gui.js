@@ -1,5 +1,7 @@
 import moment from 'moment';
 import Mustache from 'mustache';
+//import React from 'react';
+//import ReactDOM from 'react-dom';
 
 import FEVENT from './event.js';
 import FMODEL from './model.js';
@@ -309,11 +311,14 @@ export default (function() {
     $("#sidebar").html(html);
   }
 
+
   function renderFamilySidebar(family) {
     var data = {
       prog: FMODEL.familyProgress(family),
       groups: []
     };
+
+    //ReactDOM.render(<FamilyViewCreate />, document.getElementById('test-container'));
 
     var groups = FMODEL.getFamily(family).groups;
     for (var i = 0, ii = groups.length; i < ii; i++) {
@@ -465,7 +470,7 @@ export default (function() {
     var data = {
       person: leaders.map(toPerson),
       score:  myScore * 100
-	};
+    };
 
     var html = Mustache.to_html(template, data);
     $("#sidebar").hide();

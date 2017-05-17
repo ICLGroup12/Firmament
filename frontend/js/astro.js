@@ -151,7 +151,7 @@ Star.prototype.getColour = function getColour() {
     b = 0.63 - (0.6 * t * t);
   }
 
-  return {r: r, g: g, b: b};
+  return {r, g, b};
 };
 
 function Constellation(data) {
