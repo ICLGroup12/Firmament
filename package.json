@@ -2,7 +2,7 @@
   "name": "firmament",
   "scripts": {
     "gulp": "gulp",
-    "bundle": "rollup -c",
+    "bundle": "webpack",
     "build": "npm-run-all --parallel bundle gulp"
   },
   "devDependencies": {
@@ -13,12 +13,7 @@
     "gulp": "^3.9.1",
     "gulp-csso": "^3.0.0",
     "npm-run-all": "^4.0.2",
-    "rollup": "^0.41.4",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-jsx": "^1.0.3",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-watch": "^3.2.2"
+    "webpack": "^3.5.4"
   },
   "jshintConfig": {
     "esversion": 6
