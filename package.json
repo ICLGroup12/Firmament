@@ -6,8 +6,9 @@
     "build": "npm-run-all --parallel bundle gulp"
   },
   "devDependencies": {
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "gulp": "^3.9.1",
@@ -21,6 +22,8 @@
   "dependencies": {
     "moment": "^2.18.1",
     "mustache": "^2.3.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "three": "^0.85.2"
   }
 }
