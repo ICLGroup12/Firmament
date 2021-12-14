@@ -18,4 +18,4 @@ gulp.task('assets', function(){
 });
 
 
-gulp.task('default', [ 'html', 'css', 'assets' ]);
+gulp.task('default', gulp.parallel('html', 'css', 'assets'));
