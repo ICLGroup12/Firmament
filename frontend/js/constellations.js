@@ -1,6 +1,6 @@
 import FMODEL from './model.js';
 
-import {LineBasicMaterial, Object3D, Vector3, Geometry, Line} from 'three';
+import {LineBasicMaterial, Object3D, Vector3, BufferGeometry, Line} from 'three';
 
 function Constellations(radius) {
 
@@ -21,19 +21,21 @@ function Constellations(radius) {
     var edges = constellation.edges;
     for (var i = 0, len = edges.length; i < len; i++) {
       var edge = edges[i];
-      var geometry = new Geometry();
+      var points = [];
 
       // get start star
       var s = FMODEL.getStar(edge.start).getPosition();
       var sp = new Vector3().fromAngles(s.ra, s.dec);
       sp.multiplyScalar(radius);
-      geometry.vertices.push(sp);
+      points.push(sp);
 
       // get end star
       var e = FMODEL.getStar(edge.end).getPosition();
       var ep = new Vector3().fromAngles(e.ra, e.dec);
       ep.multiplyScalar(radius);
-      geometry.vertices.push(ep);
+      points.push(ep);
+
+      var geometry = new THREE.BufferGeometry().setFromPoints(points)
 
       // draw line between them
       var line = new Line(geometry, material);
